@@ -1,4 +1,4 @@
-# Gollum add-on repository for Home Assitant
+# Gollum add-on repository for Home Assistant
 
 ## Detailed Install Instructions
 
