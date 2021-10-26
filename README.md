@@ -1,4 +1,4 @@
-# Gollum add-on repository form Home Assitant
+# Gollum add-on repository for Home Assitant
 
 ## Detailed Install Instructions
 
