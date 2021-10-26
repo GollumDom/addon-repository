@@ -2,4 +2,4 @@
 
 Implementation of MQTT explorer for home assitant
 
-![Example](https://github.com/GollumDom/addon-repository/blob/master/mqtt-explorer/example.png)
+![Example](https://raw.githubusercontent.com/GollumDom/addon-repository/master/mqtt-explorer/example.png)
