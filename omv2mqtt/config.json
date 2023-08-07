@@ -1,0 +1,17 @@
+{
+  "name": "Open Media Vault 2 MQTT",
+  "version": "0.2.0",
+  "slug": "mqtt_explorer",
+  "description": "Open Media Vault 2 MQTT is a wrapper for send data on Open Media Vault to MQTT broker.",
+  "arch": ["armhf", "armv7", "amd64", "aarch64"],
+  "startup": "application",
+  "boot": "auto",
+  "options": {
+    
+  },
+  "schema": {},
+  "host_network": true,
+  "image": "smeagolworms4/omv2mqtt",
+  "environment": {
+  }
+}
