@@ -1,6 +1,6 @@
 {
   "name": "MQTT Explorer",
-  "version": "browser-1.0.2",
+  "version": "browser-1.0.3",
   "slug": "mqtt_explorer",
   "description": "MQTT Explorer is a comprehensive MQTT client that provides a structured overview of your MQTT topics and makes working with devices/services on your broker dead-simple.",
   "arch": ["armhf", "armv7", "amd64", "aarch64"],
@@ -14,6 +14,7 @@
   "image": "smeagolworms4/mqtt-explorer",
   "map": [ "addons" ],
   "environment": {
-    "CONFIG_PATH": "/data"
+    "CONFIG_PATH": "/data",
+    "INITIAL_CONFIG": "{\"ConnectionManager_connections\":{\"mqtt.eclipse.org\":{\"configVersion\":1,\"certValidation\":true,\"clientId\":\"mqtt-explorer-ce4f0fc6\",\"id\":\"homeassitant\",\"name\":\"homeassitant\",\"encryption\":false,\"subscriptions\":[{\"topic\":\"#\",\"qos\":0},{\"topic\":\"$SYS/#\",\"qos\":0}],\"type\":\"mqtt\",\"host\":\"core-mosquitto.local.hass.io\",\"port\":1883,\"protocol\":\"mqtt\",\"username\":\"\",\"password\":\"\"}}}"
   }
 }
