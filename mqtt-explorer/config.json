@@ -15,6 +15,6 @@
   "map": [ "addons" ],
   "environment": {
     "CONFIG_PATH": "/data",
-    "INITIAL_CONFIG": "{\"ConnectionManager_connections\":{\"homeassistant\":{\"configVersion\":1,\"certValidation\":true,\"clientId\":\"mqtt-explorer-c235f9c4\",\"id\":\"855d202e-ca85-4c69-aa21-3608887366ef\",\"name\":\"homeassistant\",\"encryption\":false,\"subscriptions\":[{\"topic\":\"#\",\"qos\":0},{\"topic\":\"$SYS/#\",\"qos\":0}],\"type\":\"mqtt\",\"host\":\"core-mosquitto.local.hass.io\",\"port\":1883,\"protocol\":\"mqtt\"}}}"
+    "INITIAL_CONFIG": "{\"ConnectionManager_connections\":{\"f69723c3-4fcd-4bd9-a63d-c81864946931\":{\"configVersion\":1,\"certValidation\":true,\"clientId\":\"mqtt-explorer-52dfac40\",\"id\":\"f69723c3-4fcd-4bd9-a63d-c81864946931\",\"name\":\"homeassistant\",\"encryption\":false,\"subscriptions\":[{\"topic\":\"#\",\"qos\":0},{\"topic\":\"$SYS/#\",\"qos\":0}],\"type\":\"mqtt\",\"host\":\"core-mosquitto.local.hass.io\",\"port\":1883,\"protocol\":\"mqtt\"}}}"
   }
 }
