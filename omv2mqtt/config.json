@@ -21,11 +21,11 @@
     "HA_DISCOVERY": true,
     "HA_PREFIX": "homeassistant"
   },
-  "options": {
+  "schema": {
     "MQTT_URI": "str",
     "OMV_URL": "str",
     "OMV_LOGIN": "str",
-    "OMV_PASSWORD": "str",
+    "OMV_PASSWORD": "password",
     "OMV_EXPOSED_NETWORKS": ["str"],
     "SCAN_INTERVAL": "int(0,)",
     "LOGIN_INTERVAL": "int(0,)",
@@ -36,7 +36,6 @@
     "HA_DISCOVERY": "bool",
     "HA_PREFIX": "str"
   },
-  "schema": {},
   "host_network": true,
   "image": "smeagolworms4/omv2mqtt",
   "environment": {

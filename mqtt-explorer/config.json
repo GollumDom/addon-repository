@@ -6,19 +6,13 @@
   "arch": ["armhf", "armv7", "amd64", "aarch64"],
   "startup": "application",
   "boot": "auto",
-  "options": {
-    "HTTP_PORT": 4000
-  },
-  "schema": {
-    "HTTP_PORT": "int(1,)"
-  },
   "ingress": true,
-  "ingress_port": 4000, 
+  "ingress_port": 4000,
   "panel_icon": "mdi:network-pos",
-  "host_network": true,
   "panel_admin": true,
   "panel_icon": "mdi:access-point-network",
   "image": "smeagolworms4/mqtt-explorer",
+  "map": [ "addons" ],
   "environment": {
     "CONFIG_PATH": "/data"
   }
