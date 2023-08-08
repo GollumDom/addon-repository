@@ -1,3 +1,0 @@
-[submodule "mqtt-explorer"]
-	path = mqtt-explorer
-	url = https://github.com/GollumDom/addon-repository-mqtt-explorer.git
