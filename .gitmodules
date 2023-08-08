@@ -1,0 +1,6 @@
+[submodule "mqtt-explorer"]
+	path = mqtt-explorer
+	url = https://github.com/GollumDom/addon-repository-mqtt-explorer.git
+[submodule "omv2mqtt"]
+	path = omv2mqtt
+	url = https://github.com/GollumDom/addon-repository-omv2mqtt.git
