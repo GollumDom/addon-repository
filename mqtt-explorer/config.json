@@ -7,10 +7,10 @@
   "startup": "application",
   "boot": "auto",
   "options": {
-    "HTTP_PORT": 4000,
+    "HTTP_PORT": 4000
   },
   "schema": {
-    "HTTP_PORT": "int(1,)",
+    "HTTP_PORT": "int(1,)"
   },
   "ingress": true,
   "ingress_port": 4000, 
