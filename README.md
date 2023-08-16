@@ -16,3 +16,8 @@ If you want to do add the repository manually, please follow the procedure highl
 1. Navigate in your Home Assistant frontend to <kbd>Supervisor</kbd> -> <kbd>Add-on Store</kbd>.
 
 2. Click the 3-dots menu at upper right <kbd>...</kbd> > <kbd>Repositories</kbd> and add this repository's URL: [https://github.com/GollumDom/addon-repository](https://github.com/GollumDom/addon-repository)
+
+## Addons list
+
+ - [MQTT Explorer](https://github.com/GollumDom/addon-repository/tree/master/mqtt-explorer)
+ - [OMV 2 MQTT](https://github.com/GollumDom/addon-repository/tree/master/omv2mqtt)
