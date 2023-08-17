@@ -40,5 +40,11 @@
   "host_network": true,
   "image": "smeagolworms4/omv2mqtt",
   "environment": {
+  },
+  "ports": {
+    "4000": null
+  },
+  "ports_description": {
+    "4000": "Exposed HTTP port"
   }
 }
