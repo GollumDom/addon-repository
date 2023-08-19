@@ -35,7 +35,7 @@
     "HA_PREFIX": "str"
   },
   "legacy": true,
-  "image": "smeagolworms4/synology_ds",
+  "image": "smeagolworms4/synology_ds2mqtt",
   "environment": {
   }
 }
