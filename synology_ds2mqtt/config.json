@@ -1,21 +1,20 @@
 {
-  "name": "Open Media Vault 2 MQTT",
-  "version": "0.2.1",
-  "slug": "omv2mqtt",
-  "description": "Open Media Vault 2 MQTT is a wrapper for send data on Open Media Vault to MQTT broker.",
+  "name": "Synology Download Station 2 MQTT",
+  "version": "0.1.0",
+  "slug": "synology_ds2mqtt",
+  "description": "Synology Download Station 2 MQTT is a wrapper for send data on Synology Download Station to MQTT broker.",
   "arch": ["armhf", "armv7", "amd64", "aarch64"],
   "startup": "application",
   "boot": "auto",
   "options": {
     "MQTT_URI": "mqtt://LOGIN:PASSWORD@core-mosquitto.local.hass.io:1883",
-    "OMV_URL": "http://192.168.0.100",
-    "OMV_LOGIN": "LOGIN_OMV",
-    "OMV_PASSWORD": "PASSWORD_OMV",
-    "OMV_EXPOSED_NETWORKS": "eth0,wlan0",
+    "DS_URL": "http://192.168.0.100",
+    "DS_LOGIN": "LOGIN_DS",
+    "DS_PASSWORD": "PASSWORD_DS",
     "SCAN_INTERVAL": 30,
     "LOGIN_INTERVAL": 300,
     "DEBUG": "MESSAGE",
-    "MQTT_PREFIX": "omv",
+    "MQTT_PREFIX": "synology_ds",
     "MQTT_RETAIN": true,
     "MQTT_QOS": "0",
     "HA_DISCOVERY": true,
@@ -23,10 +22,9 @@
   },
   "schema": {
     "MQTT_URI": "str",
-    "OMV_URL": "str",
-    "OMV_LOGIN": "str",
-    "OMV_PASSWORD": "password",
-    "OMV_EXPOSED_NETWORKS": "str",
+    "DS_URL": "str",
+    "DS_LOGIN": "str",
+    "DS_PASSWORD": "password",
     "SCAN_INTERVAL": "int(0,)",
     "LOGIN_INTERVAL": "int(0,)",
     "DEBUG": "list(DEBUG|MESSAGE|ERROR)",
@@ -37,7 +35,7 @@
     "HA_PREFIX": "str"
   },
   "legacy": true,
-  "image": "smeagolworms4/omv2mqtt",
+  "image": "smeagolworms4/synology_ds",
   "environment": {
   }
 }

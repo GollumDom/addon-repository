@@ -21,3 +21,4 @@ If you want to do add the repository manually, please follow the procedure highl
 
  - [MQTT Explorer](https://github.com/GollumDom/addon-repository/tree/master/mqtt-explorer)
  - [OMV 2 MQTT](https://github.com/GollumDom/addon-repository/tree/master/omv2mqtt)
+ - [Synology DS 2 MQTT](https://github.com/GollumDom/addon-repository/tree/master/synology_ds2mqtt)

@@ -1,0 +1,32 @@
+---
+configuration:
+  MQTT_URI:
+    name: "MQTT URI"
+    description: "example mqtt://LOGIN:PASSWORD@MQTT_SERVER:PORT or mqtt://MQTT_SERVER:PORT"
+  DS_URL:
+    name: "DS Base URL"
+    description: "example http://DS_SERVER"
+  DS_LOGIN:
+    name: "DS Login"
+  DS_PASSWORD: 
+    name: "DS Password"
+  DEBUG: 
+    name: "Debug verbose"
+    description: "Must be DEBUG, MESSAGE or ERROR"
+  SCAN_INTERVAL:
+    name: "Scan interval for refresh"
+  LOGIN_INTERVAL:
+    name: "Re-login interval"
+  MQTT_PREFIX:
+    name: "Prefix on mqtt topic"
+  MQTT_RETAIN:
+    name: "Option retain enabled"
+  MQTT_QOS:
+    name: "MQTT QOS"
+    description: "Must be 0,1 or 2"
+  HA_DISCOVERY:
+    name: "Home Assistant auto discovery"
+    description: "Enable home assistant auto discovery"
+  HA_PREFIX:
+    name: "Home Assistant prefix"
+    description: "Prefix home assistant discovery in MQTT"
