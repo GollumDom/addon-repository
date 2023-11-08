@@ -13,6 +13,8 @@ configuration:
   OMV_EXPOSED_NETWORKS:
     name: "OMV exposed networks"
     description: "List of network must be exposed to MQTT (separate by comma)"
+  OMV_DISABLE_CHECK_HTTPS:
+    name: "Disable check https on OMV"
   DEBUG: 
     name: "Debug verbose"
     description: "Must be DEBUG, MESSAGE or ERROR"

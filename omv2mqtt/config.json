@@ -1,6 +1,6 @@
 {
   "name": "Open Media Vault 2 MQTT",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "slug": "omv2mqtt",
   "description": "Open Media Vault 2 MQTT is a wrapper for send data on Open Media Vault to MQTT broker.",
   "arch": ["armhf", "armv7", "amd64", "aarch64"],
@@ -27,6 +27,7 @@
     "OMV_LOGIN": "str",
     "OMV_PASSWORD": "password",
     "OMV_EXPOSED_NETWORKS": "str",
+    "OMV_DISABLE_CHECK_HTTPS": "list(0|1)",
     "SCAN_INTERVAL": "int(0,)",
     "LOGIN_INTERVAL": "int(0,)",
     "DEBUG": "list(DEBUG|MESSAGE|ERROR)",
