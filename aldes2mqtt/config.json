@@ -1,0 +1,37 @@
+{
+  "name": "Aldes 2 MQTT",
+  "version": "0.1.1",
+  "slug": "alder2mqtt",
+  "description": "Aldes 2 MQTT is a wrapper for send data on Aldes API to MQTT broker.",
+  "arch": ["armhf", "armv7", "amd64", "aarch64"],
+  "startup": "application",
+  "boot": "auto",
+  "options": {
+    "MQTT_URI": "mqtt://LOGIN:PASSWORD@core-mosquitto.local.hass.io:1883",
+    "ALDES_LOGIN": "LOGIN_EMAIL_ALDES",
+    "ALDES_PASSWORD": "PASSWORD_ALDES",
+    "SCAN_INTERVAL": 30,
+    "DEBUG": "MESSAGE",
+    "MQTT_PREFIX": "aldes",
+    "MQTT_RETAIN": true,
+    "MQTT_QOS": "0",
+    "HA_DISCOVERY": true,
+    "HA_PREFIX": "homeassistant"
+  },
+  "schema": {
+    "MQTT_URI": "str",
+    "ALDES_LOGIN": "str",
+    "ALDES_PASSWORD": "password",
+    "SCAN_INTERVAL": "int(0,)",
+    "DEBUG": "list(DEBUG|MESSAGE|ERROR)",
+    "MQTT_PREFIX": "str",
+    "MQTT_RETAIN": "bool",
+    "MQTT_QOS": "list(0|1|2)",
+    "HA_DISCOVERY": "bool",
+    "HA_PREFIX": "str"
+  },
+  "legacy": true,
+  "image": "smeagolworms4/aldes2mqtt",
+  "environment": {
+  }
+}
