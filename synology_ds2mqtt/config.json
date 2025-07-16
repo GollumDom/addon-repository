@@ -1,6 +1,6 @@
 {
   "name": "Synology Download Station 2 MQTT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "slug": "synology_ds2mqtt",
   "description": "Synology Download Station 2 MQTT is a wrapper for send data on Synology Download Station to MQTT broker.",
   "arch": ["armhf", "armv7", "amd64", "aarch64"],
