@@ -1,0 +1,47 @@
+---
+version: 2.15.3
+slug: openthread_border_router_network
+name: OpenThread Border Router (Network device)
+description: OpenThread Border Router add-on for network device. 
+url: >-
+  https://github.com/GollumDom/addon-repository/tree/master/openthread_border_router
+arch:
+  - aarch64
+  - amd64
+homeassistant: 2025.7.0
+gpio: true
+hassio_api: true
+discovery:
+  - otbr
+# IPC is only used within the Add-on
+host_ipc: false
+host_network: true
+host_uts: true
+privileged:
+  - IPC_LOCK
+  - NET_ADMIN
+devices:
+  - /dev/net/tun
+image: smeagolworms4/core_openthread_border_router
+init: false
+options:
+  baudrate: "460800"
+  flow_control: true
+  network_device: ""
+  otbr_log_level: notice
+  firewall: true
+  nat64: false
+ports:
+  8080/tcp: null
+  8081/tcp: null
+ports_description:
+  8080/tcp: OpenThread Web port
+  8081/tcp: OpenThread REST API port
+schema:
+  baudrate: list(57600|115200|230400|460800|921600|1000000)
+  flow_control: bool
+  network_device: str
+  otbr_log_level: list(debug|info|notice|warning|error|critical|alert|emergency)
+  firewall: bool
+  nat64: bool
+startup: services

@@ -24,3 +24,4 @@ If you want to do add the repository manually, please follow the procedure highl
  - [Synology DS 2 MQTT](https://github.com/GollumDom/addon-repository/tree/master/synology_ds2mqtt)
  - [Aldes 2 MQTT](https://github.com/GollumDom/addon-repository/tree/master/aldes2mqtt)
  - [Second Core](https://github.com/GollumDom/addon-repository/tree/master/second-core)
+ - [Core Openthread Border Router (Network)](https://github.com/GollumDom/addon-repository/tree/master/core_openthread_border_router)
