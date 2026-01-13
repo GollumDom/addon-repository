@@ -22,7 +22,7 @@ privileged:
   - NET_ADMIN
 devices:
   - /dev/net/tun
-image: smeagolworms4/core_openthread_border_router
+image: smeagolworms4/core_openthread_border_router_{arch}
 init: false
 options:
   baudrate: "460800"
