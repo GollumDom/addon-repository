@@ -1,4 +1,0 @@
----
-configuration:
-  BASE_CONFIG_PATH:
-    name: "Base path of configuration"
