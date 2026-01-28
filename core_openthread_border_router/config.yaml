@@ -1,5 +1,5 @@
 ---
-version: 2.15.3
+version: 2.16.0
 slug: openthread_border_router_network
 name: OpenThread Border Router (Network device)
 description: OpenThread Border Router add-on for network device. 
