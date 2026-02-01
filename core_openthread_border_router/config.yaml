@@ -4,7 +4,7 @@ slug: openthread_border_router_network
 name: OpenThread Border Router (Network device)
 description: OpenThread Border Router add-on for network device. 
 url: >-
-  https://github.com/GollumDom/addon-repository/tree/master/openthread_border_router
+  https://github.com/GollumDom/addon-repository/tree/master/core_openthread_border_router
 arch:
   - aarch64
   - amd64
