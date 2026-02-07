@@ -1,6 +1,6 @@
 {
   "name": "HA Second Core",
-  "version": "2026.1.1",
+  "version": "2026.2.1",
   "slug": "second_core",
   "description": "Run a second home assistante core on port 8124 by default.",
   "arch": ["amd64", "aarch64"],
