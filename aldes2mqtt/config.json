@@ -1,7 +1,7 @@
 {
   "name": "Aldes 2 MQTT",
-  "version": "0.1.5",
-  "slug": "alder2mqtt",
+  "version": "0.1.6",
+  "slug": "aldes2mqtt",
   "description": "Aldes 2 MQTT is a wrapper for send data on Aldes API to MQTT broker.",
   "arch": ["armhf", "armv7", "amd64", "aarch64"],
   "startup": "application",
