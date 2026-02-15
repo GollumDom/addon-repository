@@ -1,0 +1,37 @@
+{
+  "name": "Google Find My Tools",
+  "version": "0.0.1",
+  "slug": "googlefindmytools",
+  "description": "An implementation of web version for Google Find My Tools python script..",
+  "arch": ["amd64", "aarch64"],
+  "startup": "application",
+  "boot": "auto",
+  "ingress": true,
+  "ingress_port": 8000,
+  "ingress_stream": true,
+  "panel_admin": true,
+  "panel_icon": "mdi:home-search-outline",
+  "options": {
+    "GFM_DATA_PATH": "/config/googlefindmytools"
+  },
+  "schema": {
+    "GFM_DATA_PATH": "str"
+  },
+  "legacy": true,
+  "image": "smeagolworms4/googlefindmytools",
+  "map": [
+    {
+      "type": "homeassistant_config",
+      "read_only": false,
+      "path": "/config"
+    }
+  ],
+  "environment": {
+  },
+  "ports": {
+    "8000": null
+  },
+  "ports_description": {
+    "8000": "Exposed HTTP port"
+  }
+}

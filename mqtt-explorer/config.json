@@ -8,7 +8,6 @@
   "boot": "auto",
   "ingress": true,
   "ingress_port": 4000,
-  "panel_icon": "mdi:network-pos",
   "panel_admin": true,
   "panel_icon": "mdi:access-point-network",
   "image": "smeagolworms4/mqtt-explorer",

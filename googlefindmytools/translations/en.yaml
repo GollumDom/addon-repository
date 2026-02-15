@@ -1,0 +1,5 @@
+---
+configuration:
+  GFM_DATA_PATH:
+    name: "Data path"
+    description: "example /data/googlefindmytools"
