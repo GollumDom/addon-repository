@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.16.5
+- Add backbone_interface option to override the network interface used for IPv6 routing.
+
 ## 2.16.4
 - Fix race condition during startup if web frontend is enabled
 
