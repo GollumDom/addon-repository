@@ -1,6 +1,6 @@
 {
   "name": "LaMeteoAgricole 2 MQTT",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "slug": "meteoagricole2mqtt",
   "description": "Scrape lameteoagricole.net and publish data to MQTT with Home Assistant auto-discovery (weather entity + agri sensors).",
   "arch": ["armhf", "armv7", "amd64", "aarch64"],
