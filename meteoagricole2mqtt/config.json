@@ -1,0 +1,37 @@
+{
+  "name": "LaMeteoAgricole 2 MQTT",
+  "version": "0.1.0",
+  "slug": "meteoagricole2mqtt",
+  "description": "Scrape lameteoagricole.net and publish data to MQTT with Home Assistant auto-discovery (weather entity + agri sensors).",
+  "arch": ["armhf", "armv7", "amd64", "aarch64"],
+  "startup": "application",
+  "boot": "auto",
+  "options": {
+    "MQTT_URI": "mqtt://LOGIN:PASSWORD@core-mosquitto.local.hass.io:1883",
+    "LOCATIONS": "Saint-Etienne-42000",
+    "SCAN_INTERVAL": 300,
+    "CITY_DELAY": 30,
+    "DEBUG": "MESSAGE",
+    "MQTT_PREFIX": "meteoagricole",
+    "MQTT_RETAIN": true,
+    "MQTT_QOS": "0",
+    "HA_DISCOVERY": true,
+    "HA_PREFIX": "homeassistant"
+  },
+  "schema": {
+    "MQTT_URI": "str",
+    "LOCATIONS": "str",
+    "SCAN_INTERVAL": "int(60,)",
+    "CITY_DELAY": "int(0,)",
+    "DEBUG": "list(DEBUG|MESSAGE|ERROR)",
+    "MQTT_PREFIX": "str",
+    "MQTT_RETAIN": "bool",
+    "MQTT_QOS": "list(0|1|2)",
+    "HA_DISCOVERY": "bool",
+    "HA_PREFIX": "str"
+  },
+  "legacy": true,
+  "image": "smeagolworms4/meteoagricole2mqtt",
+  "environment": {
+  }
+}
