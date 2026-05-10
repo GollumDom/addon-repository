@@ -1,3 +1,6 @@
+## 2026.5.1
+- Bump Home Assistant Core to 2026.5.1
+
 ## 2026.5.0
 - Bump Home Assistant Core to 2026.5.0
 
