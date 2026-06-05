@@ -1,3 +1,6 @@
+## 2026.6.0
+- Bump Home Assistant Core to 2026.6.0
+
 ## 2026.5.4
 - Bump Home Assistant Core to 2026.5.4
 
