@@ -1,0 +1,39 @@
+name: auto sync
+
+# Met à jour automatiquement les versions des addons (config + CHANGELOG) vers
+# la dernière release de chaque fork, toutes les 4h. Le commit est poussé avec
+# le GITHUB_TOKEN par défaut (push sur ce même repo, aucun build downstream à
+# déclencher ici).
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  auto-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync addon versions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/auto_sync.py
+
+      - name: Commit & push if changed
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Aucun changement."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: auto-sync addon versions to latest releases"
+          git push
