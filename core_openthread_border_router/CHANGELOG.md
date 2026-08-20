@@ -1,15 +1,18 @@
 # Changelog
 
 ## 3.1.0.2
-- Correctif du fork : le démarrage échouait avec un `network_device`
-  (`tiocmbic: Inappropriate ioctl for device` puis
-  `Init() at spinel_driver.cpp:87: Failure`). Les paramètres de contrôle de
-  flux UART sont désormais retirés de la radio URL quand le RCP est joint par
-  le réseau : ils n'ont aucun sens sur un PTY socat branché en TCP.
-- Suppression du socat et de la réécriture de `/data/options.json` propres au
-  fork, redondants avec le support natif de `network_device` en amont.
-- Les correctifs du fork sont numérotés `X.Y.Z.N` : un suffixe `-N` est lu par
-  le Supervisor comme une pré-release, donc comme *antérieur* à `X.Y.Z`.
+- Fix start-up failure with a `network_device`: the UART flow-control
+  parameters are now dropped from the radio URL when the RCP is reached over
+  the network. `uart-init-deassert` made `otbr-agent` issue `ioctl(TIOCMBIC)`
+  on the socat PTY, which fails with `ENOTTY` (`tiocmbic: Inappropriate ioctl
+  for device`); the port setup then bailed out before `tcsetattr` and the
+  spinel driver failed to initialise (`Init() at spinel_driver.cpp:87:
+  Failure`).
+- Drop the fork's own `socat` and `/data/options.json` rewrite: the upstream
+  add-on now supports `network_device` natively and bashio reads the
+  configuration from the Supervisor API, so both had become redundant.
+- Fork patch releases are numbered `X.Y.Z.N`: a `-N` suffix is read as a
+  pre-release by the Supervisor, i.e. older than `X.Y.Z`.
 
 ## 3.1.0
 - Bump to OTBR POSIX version ec16e396 (tag v2026.07.0)
