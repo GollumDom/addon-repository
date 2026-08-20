@@ -103,3 +103,66 @@ In case you've found a bug, please [open an issue on our GitHub][issue].
 [openthread-platforms]: https://openthread.io/platforms
 [nordic-nrf52840-dongle]: https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle
 [nordic-nrf52840-dongle-install]: https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/protocols/thread/tools.html#configuring_a_radio_co-processor
+
+## Troubleshooting a network device (fork-specific)
+
+This fork drives the RCP over TCP (`network_device`, e.g. an SLZB-06 in
+"Thread to remote OTBR" mode). Two failure modes look identical in the log —
+`Init() at spinel_driver.cpp:87: Failure`, followed by the container stopping —
+but have different causes.
+
+### `tiocmbic: Inappropriate ioctl for device`
+
+Fixed in 3.1.0.2. The upstream add-on appends `uart-init-deassert` to the radio
+URL when `flow_control` is off; `otbr-agent` then issues `ioctl(TIOCMBIC)` to
+deassert DTR/RTS, which a socat PTY does not implement. Port setup gives up
+before `tcsetattr`, so the baud rate is never applied. This fork now drops the
+UART flow-control parameters whenever a `network_device` is configured — serial
+flow control has no meaning over TCP. The log line to look for is:
+
+```
+INFO: Network device in use: dropping UART flow control parameters.
+```
+
+### No `tiocmbic`, still `spinel_driver.cpp:87`
+
+Line 87 is `SuccessOrDie(CheckSpinelVersion())`: `otbr-agent` asked the RCP for
+its spinel version and got no answer. If socat had failed to connect you would
+see `hdlc_interface.cpp:154: No such file or directory` instead, so the TCP
+session is fine — the radio itself is not talking.
+
+A radio that has been up for a long time can freeze in a state where only a
+**hardware reset** revives it. Over TCP there are no DTR/RTS lines, so neither
+`otbr-agent` nor socat can toggle the reset pin; the adapter has to do it. On an
+SLZB-06, use **Settings and Tools → General settings → Zigbee restart**, then
+start the add-on again.
+
+To confirm the diagnosis before touching anything, ask the RCP for its version
+straight from the network — no add-on involved:
+
+```python
+import socket
+def fcs16(d, f=0xffff):
+    for b in d:
+        f ^= b
+        for _ in range(8):
+            f = (f >> 1) ^ 0x8408 if f & 1 else f >> 1
+    return f
+def hdlc(p):
+    f = fcs16(p) ^ 0xffff
+    body = p + bytes([f & 0xff, (f >> 8) & 0xff])
+    out = bytearray([0x7e])
+    for b in body:
+        out += bytes([0x7d, b ^ 0x20]) if b in (0x7e, 0x7d, 0x11, 0x13, 0xf8) else bytes([b])
+    out.append(0x7e)
+    return bytes(out)
+
+s = socket.create_connection(("192.168.0.225", 6638), timeout=5)
+s.settimeout(3)
+s.sendall(hdlc(bytes([0x82, 0x02, 0x02])))   # GET SPINEL_PROP_NCP_VERSION
+print(s.recv(4096))
+```
+
+A healthy RCP answers with something like
+`OPENTHREAD/1.4.0.0; CC13XX_CC26XX thread-v1.4-ti-1.0-ea-1.0; SLZB-06P10 20260304`.
+Silence means the radio needs its hardware reset.
