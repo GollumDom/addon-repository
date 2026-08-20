@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.1.0-2
+## 3.1.0.2
 - Correctif du fork : le démarrage échouait avec un `network_device`
   (`tiocmbic: Inappropriate ioctl for device` puis
   `Init() at spinel_driver.cpp:87: Failure`). Les paramètres de contrôle de
@@ -8,6 +8,8 @@
   le réseau : ils n'ont aucun sens sur un PTY socat branché en TCP.
 - Suppression du socat et de la réécriture de `/data/options.json` propres au
   fork, redondants avec le support natif de `network_device` en amont.
+- Les correctifs du fork sont numérotés `X.Y.Z.N` : un suffixe `-N` est lu par
+  le Supervisor comme une pré-release, donc comme *antérieur* à `X.Y.Z`.
 
 ## 3.1.0
 - Bump to OTBR POSIX version ec16e396 (tag v2026.07.0)
