@@ -21,7 +21,9 @@ OTBR_UPSTREAM_CHANGELOG = (
 
 
 def vkey(v):
-    return tuple(int(x) for x in v.split("."))
+    """Clé de tri d'une version, avec révision de fork optionnelle ("3.1.0-2")."""
+    base, _, revision = v.partition("-")
+    return tuple(int(x) for x in base.split(".")), int(revision or 0)
 
 
 def fork_release_tags(repo):
@@ -37,8 +39,22 @@ def fork_release_tags(repo):
     return [
         t.strip()
         for t in out.splitlines()
-        if re.fullmatch(r"\d+(?:\.\d+)+", t.strip())
+        if re.fullmatch(r"\d+(?:\.\d+)+(?:-\d+)?", t.strip())
     ]
+
+
+def release_notes(repo, tag):
+    """Notes de la release du fork, pour les versions absentes du changelog
+    upstream (typiquement les correctifs suffixés "X.Y.Z-N")."""
+    try:
+        body = subprocess.check_output(
+            ["gh", "release", "view", tag, "--repo", repo, "--json", "body",
+             "--jq", ".body"],
+            text=True,
+        ).strip()
+    except subprocess.CalledProcessError:
+        body = ""
+    return body or f"- Bump to upstream version {tag}"
 
 
 def fetch(url):
@@ -107,7 +123,7 @@ def sync_otbr():
 
     upstream = parse_sections(fetch(OTBR_UPSTREAM_CHANGELOG))
     block = "".join(
-        f"## {v}\n{upstream.get(v) or f'- Bump to upstream version {v}'}\n\n"
+        f"## {v}\n{upstream.get(v) or release_notes(repo, v)}\n\n"
         for v in sorted(new, key=vkey, reverse=True)
     )
 
