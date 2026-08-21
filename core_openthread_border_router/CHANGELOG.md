@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.1.1
+- Bump beta to OTBR POSIX version d83ddc62 to test ePSKc / Thread 1.4 Credentials Sharing support ahead of the upstream `release-v2026.09.0` tag
+
 ## 3.1.0.2
 - Fix start-up failure with a `network_device`: the UART flow-control
   parameters are now dropped from the radio URL when the RCP is reached over
