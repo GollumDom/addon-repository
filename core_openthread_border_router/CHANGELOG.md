@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.2.1
+- Keep retrying unavailable network RCPs without crashing the app
+
 ## 3.2.0
 - Bump to OTBR POSIX version 337711e7 (tag v2026.08.0)
   - Improved startup robustness: multicast router setup is retried on transient errors
