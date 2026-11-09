@@ -20,10 +20,12 @@ host_uts: true
 privileged:
   - IPC_LOCK
   - NET_ADMIN
+  - NET_RAW
 devices:
   - /dev/net/tun
 image: smeagolworms4/core_openthread_border_router_{arch}
 init: false
+log_format: timestamp
 options:
   baudrate: "460800"
   flow_control: true
@@ -31,6 +33,7 @@ options:
   otbr_log_level: notice
   firewall: true
   nat64: false
+  beta: false
 ports:
   8080/tcp: null
   8081/tcp: null
@@ -40,8 +43,10 @@ ports_description:
 schema:
   baudrate: list(57600|115200|230400|460800|921600|1000000)
   flow_control: bool
+  backbone_interface: str?
   network_device: str
   otbr_log_level: list(debug|info|notice|warning|error|critical|alert|emergency)
   firewall: bool
   nat64: bool
+  beta: bool?
 startup: services
